@@ -6,13 +6,6 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from scraper import get_followers
 from datetime import datetime
 
-TOKEN = "7605062146:AAFyKbR1p3o7pih9jpeP51MnQ-ho8lxmhJA"
-michat = "5317310399"
-DE="1374599344"
-Ya="216946287"
-AC=""
-DR="5596596568"
-AP="120528488"
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
