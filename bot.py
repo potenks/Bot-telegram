@@ -46,7 +46,7 @@ async def send_followers():
       
         match i:
           case 0:
-             mensajeinfo +="\n"+ messageparcial
+             mensajeinfo +="\n"+ messageparcial + "hola"
           case 1:
              mensajeoexactas +="\n"+ messageparcial
           case 2:
