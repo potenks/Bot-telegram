@@ -5,9 +5,11 @@ from aiogram.filters import Command
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from scraper import get_followers
 from datetime import datetime
+from config import TELEGRAM_BOT_TOKEN, CHAT_IDS
 
 
-bot = Bot(token=TOKEN)
+
+bot = Bot(token=TELEGRAM_BOT_TOKEN)
 dp = Dispatcher()
 
 cuentas = [
@@ -39,22 +41,26 @@ async def send_followers():
       
         match i:
           case 0:
-             mensajeinfo +="\n"+ messageparcial + "hola"
+             mensajeinfo +="\n"+ messageparcial 
+             break
           case 1:
              mensajeoexactas +="\n"+ messageparcial
+             break
           case 2:
                mensajeoinge +="\n"+ messageparcial
+               break
           case 3:
             mensajeobser +="\n"+ messageparcial
+            break
           case 4:
             mensajeGraduados+= "\n" +messageparcial
-
-    await bot.send_message(michat, message)
-#    await bot.send_message(AP, mensajeobser)
-  #  await bot.send_message(DE, message)
-  #  await bot.send_message(Ya, mensajeoinge)
-  #  await bot.send_message(DR,mensajeinfo)
-
+            break
+        await bot.send_message(CHAT_IDS["CHAT_ID_1"], message)
+        await bot.send_message(CHAT_IDS["CHAT_ID_2"], message)
+        await bot.send_message(CHAT_IDS["CHAT_ID_3"], mensajeoinge)
+        await bot.send_message(CHAT_IDS["CHAT_ID_4"], mensajeobser)
+        await bot.send_message(CHAT_IDS["CHAT_ID_5"], mensajeinfo)
+        await bot.send_message(CHAT_IDS["CHAT_ID_6"], mensajeGraduados)
 
 
 @dp.message(Command("Mueva"))
